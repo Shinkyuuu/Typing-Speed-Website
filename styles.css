@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: rgb(42, 31, 63);
+}
+
+body, .quote-input {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 90%;
+    background-color: bisque;
+}
+
+.timer {
+    position: absolute;
+    top: 2rem;
+    font-size: 5rem;
+    color:bisque;
+    font-weight: bold;
+}
+
+.quote-display {
+    margin-bottom: 1rem;
+}
+
+.quote-input {
+    background-color: transparent;
+    border: 2px solid;
+}
