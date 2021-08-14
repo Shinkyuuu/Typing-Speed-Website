@@ -70,9 +70,5 @@ body, .quote-input {
 }
 
 .caret {
-    position: absolute;
-    height: 1.5rem;
-    width: 0.2rem;
-    background-color: white;
-    border-radius: 1rem;
+    margin: -0.35rem;
 }

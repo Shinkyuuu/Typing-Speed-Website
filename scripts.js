@@ -16,8 +16,10 @@ function resetOnTab() {
 }
 
 quoteInputElem.addEventListener('input', () => {
-    const arrayQuote = quoteDisplayElem.querySelectorAll('span');
+    var arrayQuote = quoteDisplayElem.querySelectorAll('span');
+    arrayQuote = Array.from(arrayQuote);
     const arrayValue = quoteInputElem.value.split('');
+    let index = 0;
     let correct = true;
     
     if (timerStart == false && arrayValue != null) {
@@ -25,13 +27,19 @@ quoteInputElem.addEventListener('input', () => {
         setTimer();
     }
 
-    arrayQuote.forEach((characterSpan, index) => {
+    for (var i = 0; i < arrayQuote.length; i++) {
+        if (arrayQuote[i].classList.contains("caret")) {
+            arrayQuote.splice(i, 1);
+        }
+    }
+
+    arrayQuote.forEach(characterSpan => {
         const character = arrayValue[index];
+        
         if (character == characterSpan.innerText) { // Correct  
             characterSpan.classList.add('correct');
             characterSpan.classList.remove('incorrect');
         } else if (character == null) { // Empty  
-            //quoteDisplayElem.insertBefore(caretElem, characterSpan);
             characterSpan.classList.remove('incorrect');
             characterSpan.classList.remove('correct');
             correct = false;
@@ -40,7 +48,13 @@ quoteInputElem.addEventListener('input', () => {
             characterSpan.classList.remove('correct');
             correct = false;
         }
+
+        index += 1;
     })
+
+    quoteDisplayElem.insertBefore(
+        caretElem, 
+        quoteDisplayElem.querySelector("#a"+ arrayValue.length));
 
     if (correct == true) renderNewQuote();
 })
@@ -60,8 +74,9 @@ async function renderNewQuote() {
     clearInterval(timer);
     timerStart = false;
 
-    quote.split('').forEach(character => {
+    quote.split('').forEach((character, index) => {
         const characterSpan = document.createElement('span');
+        characterSpan.id = 'a' + index;
         characterSpan.innerText = character;
         quoteDisplayElem.appendChild(characterSpan);
 
