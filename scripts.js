@@ -5,15 +5,12 @@ const timerElem = document.getElementById('timer');
 let timerStart = false;
 var timer;
 
-// document.addEventListener("keyup", function(event) {
-//     if (event.code === 'Tab') {
-//         renderNewQuote()
-//     }
-// })
-
 function resetOnTab() {
     var key = window.event.keyCode;
-
+    if (key == 9) {
+        event.preventDefault();
+        renderNewQuote();
+    }
 }
 
 quoteInputElem.addEventListener('input', () => {
