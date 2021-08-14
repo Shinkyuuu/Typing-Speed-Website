@@ -1,3 +1,10 @@
+:root {
+    --lavender: #b1abc7;
+    --main-text: rgb(224, 222, 230);
+    --correct: #414141;
+    --incorrect: #dd6969;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -8,26 +15,26 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: rgb(42, 31, 63);
+    background-color: var(--lavender);
 }
 
 body, .quote-input {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    color: var(--main-text);
 }
 
 .container {
     padding: 1rem;
     border-radius: 0.5rem;
     max-width: 90%;
-    background-color: bisque;
 }
 
 .timer {
     position: absolute;
     top: 10rem;
     font-size: 5rem;
-    color:bisque;
+    color: var(--main-text);
     font-weight: bold;
 }
 
@@ -50,14 +57,22 @@ body, .quote-input {
    
 }
 .quote-input:focus {
-    border-color: red;
+    border-color: rgb(184, 76, 76);
 }
 
 .correct {
-    color: green;
+    color: var(--correct);
 }
 
 .incorrect {
     text-decoration: underline;
-    color: red;
+    color: var(--incorrect);
+}
+
+.caret {
+    position: absolute;
+    height: 1.5rem;
+    width: 0.2rem;
+    background-color: white;
+    border-radius: 1rem;
 }
