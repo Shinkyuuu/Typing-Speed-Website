@@ -27,7 +27,7 @@ body, .quote-input {
 .container {
     padding: 1rem;
     border-radius: 0.5rem;
-    max-width: 90%;
+    max-width: 70%;
 }
 
 .timer {
@@ -54,8 +54,8 @@ body, .quote-input {
     height: 8rem;
     margin: auto;
     padding: .5rem 1rem;
-   
 }
+
 .quote-input:focus {
     border-color: rgb(184, 76, 76);
 }
