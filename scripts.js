@@ -98,4 +98,8 @@ function startTimer() {
     console.log(currentTime);
 }
 
+function ready() {
+    quoteInputElem.focus();
+}
+
 renderNewQuote();
