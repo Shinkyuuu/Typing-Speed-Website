@@ -105,3 +105,5 @@ function ready() {
 renderNewQuote();
 
 //Here's a new thing
+
+// Here's another thing
