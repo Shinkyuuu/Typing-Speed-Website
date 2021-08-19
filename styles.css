@@ -5,10 +5,6 @@
     --incorrect: #dd6969;
 }
 
-* {
-    box-sizing: border-box;
-}
-
 body {
     display: flex;
     justify-content: center;
@@ -58,10 +54,21 @@ body, .quote-input {
     padding: .5rem 1rem;
     color: transparent;
 }
-/* 
-.quote-input:focus {
-    border-color: rgb(184, 76, 76);
-} */
+
+.word {
+    display: inline;
+}
+
+.caret {
+    display: inline-block;
+    background-color: var(--main-text);
+    border-radius: 50rem;
+    width: 0.2rem;
+    height: 1.6rem;
+    margin-bottom: -0.4rem;
+    margin-left: -0.1rem;
+    margin-right: -0.1rem;
+}
 
 .correct {
     color: var(--correct);
@@ -70,15 +77,4 @@ body, .quote-input {
 .incorrect {
     text-decoration: underline;
     color: var(--incorrect);
-}
-
-.caret {
-    position: absolute;
-    display: inline-block;
-    width: 0.2rem;
-    height: 1.6rem;
-    background-color: var(--main-text);
-    margin-bottom: -0.4rem;
-    border-radius: 50rem;
-    margin-left: -0.1rem;
 }
