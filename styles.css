@@ -58,10 +58,10 @@ body, .quote-input {
     padding: .5rem 1rem;
     color: transparent;
 }
-/* 
-.quote-input:focus {
-    border-color: rgb(184, 76, 76);
-} */
+
+.word {
+    display: inline;
+}
 
 .correct {
     color: var(--correct);
@@ -75,10 +75,11 @@ body, .quote-input {
 .caret {
     position: absolute;
     display: inline-block;
+    background-color: var(--main-text);
+    border-radius: 50rem;
     width: 0.2rem;
     height: 1.6rem;
-    background-color: var(--main-text);
     margin-bottom: -0.4rem;
-    border-radius: 50rem;
     margin-left: -0.1rem;
+    margin-right: -0.1rem;
 }
