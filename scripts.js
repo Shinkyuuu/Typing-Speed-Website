@@ -22,7 +22,7 @@ quoteInputElem.addEventListener('input', () => {
     const arrayValue = quoteInputElem.value.split('');
     let correct = true;
     
-    if (timerStart == false && arrayValue != null) {
+    if (timerStart == false) {
         timerStart = true;
         setTimer();
     }
