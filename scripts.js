@@ -8,6 +8,7 @@ var timerStart = false;
 var startTime;
 var timer;
 
+// When user presses "Tab", reset the quote.
 function resetOnTab() {
     let key = window.event.keyCode;
     if (key == 9) {
@@ -16,12 +17,26 @@ function resetOnTab() {
     }
 }
 
+// Begin the timer
+function setTimer() {
+    startTime = new Date();
+    timer = setInterval(timerFunc, 1000);
+}
+
+// Timer logic
+function timerFunc() {
+    currentTime = Math.floor((new Date() - startTime) / 1000);
+    timerElem.innerText = currentTime;
+}
+
+// Listen for user typing.
 quoteInputElem.addEventListener('input', () => {
     let arrayQuote = quoteDisplayElem.querySelectorAll('span');
     arrayQuote = Array.from(arrayQuote);
     const arrayValue = quoteInputElem.value.split('');
     let correct = true;
     
+    // Turn timer on at the start of attempt.
     if (timerStart == false) {
         timerStart = true;
         setTimer();
@@ -53,7 +68,6 @@ quoteInputElem.addEventListener('input', () => {
         quoteDisplayElem.querySelector("#a"+ arrayValue.length));
 });
 
-
 // Get a random quote from API.
 function getRandomQuote() {
     return fetch(RANDOM_QUOTE_API_URL)
@@ -61,15 +75,15 @@ function getRandomQuote() {
         .then(data => data.content);
 }
 
-// Create a new quote and split it into divs/spans
+// Create a new quote and split it into divs/spans.
 async function renderNewQuote() {
     const quote = await getRandomQuote();
 
-    //setup the quote display and text input
+    // Setup the quote display and text input.
     quoteDisplayElem.innerText = '';
     quoteInputElem.value = null;
 
-    //setup timer
+    // Setup timer.
     timerElem.innerText = 0;
     clearInterval(timer);
     timerStart = false;
@@ -121,16 +135,16 @@ function splitQuote(quote) {
             characterSpan.id = 'a'+characterCount;
             characterSpan.innerText = character;
 
-            // Add character to word
+            // Add character to word.
             wordDiv.appendChild(characterSpan);
 
             characterCount+=1;
         });
 
-        // Add word to quote
+        // Add word to quote.
         quoteDisplayElem.appendChild(wordDiv);
 
-        // Create the space character and add to quotoe
+        // Create the space character and add to quote.
         characterSpace.id = 'a'+characterCount;
         characterSpace.innerText = ' ';
         quoteDisplayElem.appendChild(characterSpace);
@@ -138,25 +152,15 @@ function splitQuote(quote) {
         characterCount+=1;
     }
 
+    // The last space character is unneccesary.
     quoteDisplayElem.removeChild(quoteDisplayElem.lastChild);
     characterCount-=1;
 }
 
-// Begin the timer
-function setTimer() {
-    startTime = new Date();
-    timer = setInterval(timerFunc, 1000);
-}
-
-// Timer logic
-function timerFunc() {
-    currentTime = Math.floor((new Date() - startTime) / 1000);
-    timerElem.innerText = currentTime;
-}
-
-// When user enters page, focus the text box
+// When user enters page, focus the text box.
 function ready() {
     quoteInputElem.focus();
 }
+
 
 renderNewQuote();
