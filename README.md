@@ -1,5 +1,5 @@
-# Unnamed Typing Speed Website ⌨️
-<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png" width="100%"/>
+<h1 align="center">Unnamed Typing Speed Website ⌨️</h1>
+<img src="http://g.recordit.co/81bfwlFjNi.gif" width="100%"/>
 
 # About 🔍
  This is a website designed to test your typing speed with removed distractions such as ads or web page clutter. In the future, this will have many features such as a random words mode, custom quotes mode, and customizable themes.
